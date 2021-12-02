@@ -5,6 +5,9 @@ using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Hosting;
 using MauiApp1.Data;
+using Blazorise;
+using Blazorise.Bootstrap5;
+using Blazorise.Icons.FontAwesome;
 
 namespace MauiApp1
 {
@@ -23,6 +26,13 @@ namespace MauiApp1
 
 			builder.Services.AddBlazorWebView();
 			builder.Services.AddSingleton<WeatherForecastService>();
+
+			builder.Services.AddBlazorise(options =>
+				   {
+					   options.ChangeTextOnKeyPress = true; // optional
+				   })
+			  .AddBootstrap5Providers()
+			  .AddFontAwesomeIcons();
 
 			return builder.Build();
 		}
